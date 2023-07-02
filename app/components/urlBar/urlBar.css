@@ -1,0 +1,15 @@
+#input-bar {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  color: darkslateblue;
+}
+
+#input-bar > input {
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  padding: 10px 12px;
+  font-size: 14px;
+}
