@@ -15,6 +15,7 @@ const getOriginalUrlByShortUrlId = async (shortUrlId: string) => {
       return res.data;
     })
     .catch((res) => {
+      alert(res);
       console.log("ERROR:", res);
     });
 }
@@ -22,15 +23,18 @@ const getOriginalUrlByShortUrlId = async (shortUrlId: string) => {
 export default function GetAndRedirect() {
   const router = useRouter();
   const shortUrlId: string = router.query.id as string;
-  console.log("ID: ", shortUrlId);
+  // console.log("ID: ", shortUrlId);
   useEffect(() => {
     if (shortUrlId === undefined || shortUrlId === null) {
       return;
     }
     const fetchData = async () => {
       const urlResponse: UrlResponse = await getOriginalUrlByShortUrlId(shortUrlId);
-      console.log(urlResponse.url);
-      router.push(urlResponse.url);
+      if (urlResponse === undefined) {
+        alert("정보를 받아오는데 실패했습니다!");
+        return;
+      }
+      router.push(urlResponse.url); // 해당하는 원래의 주소로 이동
     }
     fetchData();
   });
