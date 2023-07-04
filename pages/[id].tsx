@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import axiosInstance from "@/lib/axios";
-import NotFound from "./notFound";
+import LoadingPage from "@/app/components/loading";
 
 type UrlResponse = {
   url: string
@@ -15,7 +15,7 @@ const getOriginalUrlByShortUrlId = async (shortUrlId: string) => {
       return res.data;
     })
     .catch((res) => {
-      alert(res);
+      alert(res.response.data.detail); // 에러 메시지 출력
       console.log("ERROR:", res);
     });
 }
@@ -31,7 +31,7 @@ export default function GetAndRedirect() {
     const fetchData = async () => {
       const urlResponse: UrlResponse = await getOriginalUrlByShortUrlId(shortUrlId);
       if (urlResponse === undefined) {
-        alert("정보를 받아오는데 실패했습니다!");
+        router.push("/notFound"); // 못 찾은 경우, not found 페이지로 이동
         return;
       }
       router.push(urlResponse.url); // 해당하는 원래의 주소로 이동
@@ -39,5 +39,10 @@ export default function GetAndRedirect() {
     fetchData();
   });
 
-  return (<NotFound />);
+  // 불러오는 동안 로딩 페이지 보여줌
+  return (
+    <>
+      <LoadingPage />
+    </>
+  );
 }
