@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ShortUrl } from "./urlBar/urlBar";
-import useCopyClipBoard from "./useCopyClipBoard";
+import useCopyClipBoard from "../hooks/useCopyClipBoard";
 import SaveImageButton from "./saveImageButton";
 
 const ShortUrlInfo: React.FC<{ shortUrl: ShortUrl }> = ({ shortUrl }) => {

@@ -25,7 +25,8 @@ const getShortUrl = async (originalUrl: string) => {
       return res.data;
     })
     .catch((res) => {
-      //console.log(res);
+      console.log(res);
+      alert(res);
     });
 }
 
@@ -36,26 +37,25 @@ function UrlBar({ onGenerateUrl }: { onGenerateUrl: (url: ShortUrl) => void }) {
     setInputUrl(event.target.value);
   }
 
-  const handleEnter = async (event: React.KeyboardEvent<HTMLInputElement>) => {
-    // Enter 입력 이벤트 함수
-    if (event.key === 'Enter') {
-      const urlInfo: ShortUrl | null = await getShortUrl(inputUrl);
-      if (urlInfo) {
-        onGenerateUrl(urlInfo);
-      }
+  const submit = async () => {
+    const urlInfo: ShortUrl | null = await getShortUrl(inputUrl);
+    if (urlInfo) {
+      onGenerateUrl(urlInfo);
+
     }
   }
 
   return (
-    <div id="input-bar">
-      <input
-        type="text"
-        value={inputUrl}
-        onChange={onUrlBarChange}
-        onKeyDown={handleEnter}
-        placeholder="단축할 URL을 입력해주세요."/>
-        {/* 검색 버튼 */}
-    </div>
+    <form id="input-bar" onSubmit={submit}>
+      <label>
+        <input
+          type="text"
+          value={inputUrl}
+          onChange={onUrlBarChange}
+          placeholder="단축할 URL을 입력해주세요."/>
+        <button id="input-button">단축</button>
+      </label>
+    </form>
   )
 }
 
