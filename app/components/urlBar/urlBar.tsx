@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./UrlBar.css";
+import "./urlBar.css";
 import axiosInstance from "../../../lib/axios";
 
 export type ShortUrl = {
@@ -24,9 +24,9 @@ const getShortUrl = async (originalUrl: string) => {
       console.log(res.data);
       return res.data;
     })
-    .catch((res) => {
-      console.log(res);
-      alert(res);
+    .catch((error) => {
+      console.log(error);
+      alert(error.response.data.detail);
     });
 }
 
@@ -37,12 +37,10 @@ function UrlBar({ onGenerateUrl }: { onGenerateUrl: (url: ShortUrl) => void }) {
     setInputUrl(event.target.value);
   }
 
-  const submit = async () => {
-    const urlInfo: ShortUrl | null = await getShortUrl(inputUrl);
-    if (urlInfo) {
-      onGenerateUrl(urlInfo);
-
-    }
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const urlInfo: ShortUrl = await getShortUrl(inputUrl);
+    onGenerateUrl(urlInfo);
   }
 
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import UrlBar, { ShortUrl } from "./urlBar/urlBar";
-import ShortUrlInfo from "./shortUrlInfo";
+import ShortUrlInfo from "./shortUrlInfo/shortUrlInfo";
 
 const HomePage: React.FC = () => {
   const [urlInfo, setUrlInfo] = useState<ShortUrl | null>(null);
@@ -9,9 +9,9 @@ const HomePage: React.FC = () => {
     setUrlInfo(url);
   }
 
-  useEffect(() => {
+  // useEffect(() => {
     
-  }, [urlInfo]);
+  // }, [urlInfo]);
 
   return (
     <>
