@@ -9,14 +9,10 @@ const HomePage: React.FC = () => {
     setUrlInfo(url);
   }
 
-  // useEffect(() => {
-    
-  // }, [urlInfo]);
-
   return (
     <>
       <h1>URL 링크 단축</h1>
-      <p></p>
+      <p>링크 단축 서비스를 이용해보세요</p>
       <UrlBar onGenerateUrl={onGenerateUrl} />
       {urlInfo && <ShortUrlInfo shortUrl={urlInfo}/>}
     </>

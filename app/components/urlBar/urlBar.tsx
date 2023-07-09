@@ -45,14 +45,12 @@ function UrlBar({ onGenerateUrl }: { onGenerateUrl: (url: ShortUrl) => void }) {
 
   return (
     <form id="input-bar" onSubmit={submit}>
-      <label>
-        <input
-          type="text"
-          value={inputUrl}
-          onChange={onUrlBarChange}
-          placeholder="단축할 URL을 입력해주세요."/>
-        <button id="input-button">단축</button>
-      </label>
+      <input
+        type="text"
+        value={inputUrl}
+        onChange={onUrlBarChange}
+        placeholder="단축할 URL을 입력해주세요." />
+      <button id="input-button">단축</button>
     </form>
   )
 }

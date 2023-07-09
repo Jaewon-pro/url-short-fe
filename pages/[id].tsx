@@ -15,7 +15,9 @@ const getOriginalUrlByShortUrlId = async (shortUrlId: string) => {
       return res.data;
     })
     .catch((res) => {
-      alert(res.response.data.detail); // 에러 메시지 출력
+      if (res.response != null) {
+        alert(res.response.data.detail); // 에러 메시지 출력
+      }
       console.log("ERROR:", res);
     });
 }
@@ -31,7 +33,7 @@ export default function GetAndRedirect() {
     const fetchData = async () => {
       const urlResponse: UrlResponse = await getOriginalUrlByShortUrlId(shortUrlId);
       if (urlResponse === undefined) {
-        router.push("/notFound"); // 못 찾은 경우, not found 페이지로 이동
+        router.push("/not-found"); // 못 찾은 경우, not found 페이지로 이동
         return;
       }
       router.push(urlResponse.url); // 해당하는 원래의 주소로 이동

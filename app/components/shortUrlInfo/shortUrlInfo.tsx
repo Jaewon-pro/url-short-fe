@@ -27,7 +27,6 @@ const ShortUrlInfo: React.FC<{ shortUrl: ShortUrl }> = ({ shortUrl }) => {
         {isCopy && <span>복사 완료!!</span>}
       </div>
       <span>유효 사용일자: {url.expireAt.toString()}</span>
-      <span></span>
 
       <img src={`data:image/jpeg;base64,${url.qrcode}`} />
       <div id="url-qrcode">

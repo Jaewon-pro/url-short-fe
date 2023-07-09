@@ -1,24 +1,25 @@
 #input-bar {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   border-color: gainsboro;
   border-radius: 50px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
+  display: flex;
 }
 
-label {
-  position: relative;
+#input-bar:focus-within {
+  box-shadow: 4px 4px 10px rgba(255, 0, 0, 0.2);
 }
 
 #input-bar input {
-  width: calc(90% - 44px);
+  width: calc(100% - 44px);
   height: 100%;
-  /* border: 1px solid gainsboro; */
   border: none;
   padding: 10px 12px;
   font-size: 14px;
-  float: left;
+  flex: 1;
+  margin-right: 44px;
 }
 
 #input-bar input:focus {
@@ -26,7 +27,6 @@ label {
 }
 
 #input-button {
-  position: absolute;
   all: unset;
   cursor: pointer;
   width: 44px;
