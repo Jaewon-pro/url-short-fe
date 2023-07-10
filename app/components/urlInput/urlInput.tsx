@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./urlBar.css";
 import axiosInstance from "../../../lib/axios";
+import "./urlInput.css";
 
 export type ShortUrl = {
   originalUrl: string
@@ -25,8 +25,12 @@ const getShortUrl = async (originalUrl: string) => {
       return res.data;
     })
     .catch((error) => {
+      if (error.response !== undefined) {
+        alert(error.response.data.detail); // 에러 메시지 출력
+      } else {
+        alert("서버와 통신할 수 없습니다!");
+      }
       console.log(error);
-      alert(error.response.data.detail);
     });
 }
 

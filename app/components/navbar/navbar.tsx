@@ -11,8 +11,9 @@ const NavBar: React.FC = () => {
         <span />
         <span />
         <ul id="menu">
-          <Link href="/"><li>Main</li></Link>
-          <Link href="about"><li>About</li></Link>
+          <Link href="/"><li>URL 단축하기</li></Link>
+          <Link href="about"><li>소개</li></Link>
+          <Link href="report"><li>신고하기</li></Link>
         </ul>
       </div>
     </nav>

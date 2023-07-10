@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ShortUrl } from "../urlBar/urlBar";
+import { ShortUrl } from "../urlInput/urlInput";
 import useCopyClipBoard from "../../hooks/useCopyClipBoard";
 import SaveImageButton from "../saveImageButton";
 import "./shortUrlInfo.css";

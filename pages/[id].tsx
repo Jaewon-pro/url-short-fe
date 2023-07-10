@@ -14,11 +14,13 @@ const getOriginalUrlByShortUrlId = async (shortUrlId: string) => {
       console.log(res.data);
       return res.data;
     })
-    .catch((res) => {
-      if (res.response != null) {
-        alert(res.response.data.detail); // 에러 메시지 출력
+    .catch((error) => {
+      if (error.response !== undefined) {
+        alert(error.response.data.detail); // 에러 메시지 출력
+      } else {
+        alert("서버와 통신할 수 없습니다!");
       }
-      console.log("ERROR:", res);
+      console.log("ERROR:", error);
     });
 }
 
