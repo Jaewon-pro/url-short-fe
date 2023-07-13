@@ -20,9 +20,8 @@
 
 
 /* 개별 적용 */
-
-@media (orientation: portrait) {
-  /* Portrait 모드일 때 적용할 CSS */
+@media (orientation: landscape) {
+  /* 가로창, Landscape 모드일 때 적용할 CSS */
 
   #menuToggle > input {
     display: none;
@@ -50,9 +49,8 @@
 
 }
 
-@media (orientation: landscape) {
-
-  /* 가로창, Landscape 모드일 때 적용할 CSS */
+@media (orientation: portrait) {
+  /* Portrait 모드일 때 적용할 CSS */
   nav {
     height: 60px;
   }

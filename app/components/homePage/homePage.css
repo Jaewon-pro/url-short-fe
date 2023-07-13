@@ -1,3 +1,7 @@
-#home-page > h1 p {
+#home-page > h1 {
+  text-align: center;
+}
+
+#home-page > p {
   text-align: center;
 }
