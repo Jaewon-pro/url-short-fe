@@ -7,7 +7,7 @@ export type ShortUrl = {
   shortUrl: string
   qrcode: string
   createdAt: Date
-  expireAt: Date
+  expiryDate: Date
 }
 
 type ShortUrlRequest = {
